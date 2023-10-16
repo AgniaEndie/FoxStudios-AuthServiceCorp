@@ -2,7 +2,7 @@
     <span style="color:orangered">Fox</span><span style="color: white">Studios</span> - <span style="color:orangered">Auth</span><span style="color: white">Service</span>
 </font>
 <br>
-<span>
+<span style ="color: orangered">
 Сервис авторизации FoxStudios, используется для реализации всех механизмов аутентификации и авторизации в работе с пользователями.
 </span>
 
