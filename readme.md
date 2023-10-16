@@ -1,5 +1,5 @@
 <font size="7">
-    <span style="color:#ff6c37">Fox</span><span style="color: white">Studios</span> - <span style="color:#ff6c37">Auth</span><span style="color: white">Service</span>
+    <span style="color:orangered">Fox</span><span style="color: white">Studios</span> - <span style="color:orangered">Auth</span><span style="color: white">Service</span>
 </font>
 <br>
 <span>
