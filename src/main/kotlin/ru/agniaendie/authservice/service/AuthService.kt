@@ -34,17 +34,14 @@ class AuthService(var repository: IUsersRepository, @Value("\${jwt.secret}") sec
         return try {
             val user = repository.findUserByUsername(request.username)
             if (user.password == request.password) {
-                println("ge")
                 val token = jwtService.generateToken(user)
                 return AuthResponse(user.username, token, user.uuid, user.role)
 
             } else {
-                println("dada?")
                 return ""
             }
         } catch (e: Exception) {
             e.message.toString()
-            println("da?")
         }
 
     }

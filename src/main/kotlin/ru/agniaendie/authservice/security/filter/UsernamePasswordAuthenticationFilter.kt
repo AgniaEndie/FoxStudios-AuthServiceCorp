@@ -16,7 +16,10 @@ import ru.agniaendie.authservice.repository.IUsersRepository
 import ru.agniaendie.authservice.security.jwt.JwtTokenService
 
 @Component
-class UsernamePasswordAuthenticationFilter(@Autowired var usersRepository: IUsersRepository,@Value("\${jwt.secret}") secret : String?) : OncePerRequestFilter() {
+class UsernamePasswordAuthenticationFilter(
+    @Autowired var usersRepository: IUsersRepository,
+    @Value("\${jwt.secret}") secret: String?
+) : OncePerRequestFilter() {
     var jwtTokenService = JwtTokenService(secret)
     val log = LoggerFactory.getLogger(this.javaClass)
     override fun doFilterInternal(
@@ -51,6 +54,8 @@ class UsernamePasswordAuthenticationFilter(@Autowired var usersRepository: IUser
                 log.error("Токен истек$token")
             }
         }
+
         filterChain.doFilter(request, response)
+
     }
 }
