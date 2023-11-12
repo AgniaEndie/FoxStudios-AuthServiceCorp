@@ -1,4 +1,4 @@
-package ru.agniaendie.authservice.security.jwt
+package ru.agniaendie.authservicecorp.security.jwt
 
 import io.jsonwebtoken.Claims
 import io.jsonwebtoken.Jwts
@@ -7,7 +7,7 @@ import lombok.NonNull
 import org.apache.tomcat.util.codec.binary.Base64
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Service
-import ru.agniaendie.authservice.model.User
+import ru.agniaendie.authservicecorp.model.User
 import java.nio.charset.StandardCharsets
 import java.time.LocalDateTime
 import java.time.ZoneId
@@ -36,7 +36,7 @@ class JwtTokenService(@Value("\${jwt.secret}")private var secret : String?) {
         val exp: Date = Date.from(
             LocalDateTime.now().plusMinutes(30).atZone(ZoneId.systemDefault()).toInstant()
         )
-        return Jwts.builder().setExpiration(exp).setIssuedAt(now).setSubject(user.username)
+        return Jwts.builder().setExpiration(exp).setIssuedAt(now).setSubject(user.username).claim("uuid", user.uuid).claim("role",user.role)
             .signWith(SignatureAlgorithm.HS256, getSigningKey()).compact()
     }
 

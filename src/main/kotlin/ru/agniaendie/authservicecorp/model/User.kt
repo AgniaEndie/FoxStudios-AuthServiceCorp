@@ -1,4 +1,4 @@
-package ru.agniaendie.authservice.model
+package ru.agniaendie.authservicecorp.model
 
 import jakarta.persistence.Entity
 import jakarta.persistence.Id
@@ -9,8 +9,16 @@ import org.springframework.security.core.userdetails.UserDetails
 
 @Entity
 @Table(name = "users")
-data class User(@Id val uuid:String, private val username:String,private val password: String,
-                val firstname:String, val lastname: String, val role: Role) : UserDetails {
+data class User(
+    @Id val uuid:String,
+    private val username:String,
+    private val password: String,
+    val firstname:String,
+    val lastname: String,
+    val surname: String,
+    val email : String,
+    val role: Role
+) : UserDetails {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other == null || Hibernate.getClass(this) != Hibernate.getClass(other)) return false

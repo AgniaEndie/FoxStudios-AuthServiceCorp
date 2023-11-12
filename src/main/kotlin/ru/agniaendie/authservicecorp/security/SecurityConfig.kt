@@ -1,4 +1,4 @@
-package ru.agniaendie.authservice.security
+package ru.agniaendie.authservicecorp.security
 
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
@@ -15,7 +15,8 @@ import org.springframework.security.web.access.AccessDeniedHandlerImpl
 import org.springframework.web.cors.CorsConfiguration
 import org.springframework.web.cors.CorsConfigurationSource
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource
-import ru.agniaendie.authservice.repository.IUsersRepository
+import ru.agniaendie.authservicecorp.repository.IUsersRepository
+import ru.agniaendie.authservicecorp.security.filter.UsernamePasswordAuthenticationFilter
 import java.util.*
 
 
@@ -25,7 +26,7 @@ class SecurityConfig(@Autowired var repository: IUsersRepository, @Value("\${jwt
     @Value("\${jwt.secret}")
     private var secret: String? = secret
     val jwtAuthFilter by lazy {
-        ru.agniaendie.authservice.security.filter.UsernamePasswordAuthenticationFilter(
+        UsernamePasswordAuthenticationFilter(
             repository, secret
         )
     }
@@ -69,7 +70,7 @@ class SecurityConfig(@Autowired var repository: IUsersRepository, @Value("\${jwt
 //    }
 
     @Bean
-    suspend fun encoder(): PasswordEncoder {
+    fun encoder(): PasswordEncoder {
         return BCryptPasswordEncoder()
     }
 

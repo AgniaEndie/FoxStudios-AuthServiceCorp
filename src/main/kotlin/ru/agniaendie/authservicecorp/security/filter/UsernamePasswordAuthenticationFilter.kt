@@ -1,4 +1,4 @@
-package ru.agniaendie.authservice.security.filter
+package ru.agniaendie.authservicecorp.security.filter
 
 import jakarta.servlet.FilterChain
 import jakarta.servlet.http.HttpServletRequest
@@ -11,9 +11,9 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.stereotype.Component
 import org.springframework.web.filter.OncePerRequestFilter
-import ru.agniaendie.authservice.model.User
-import ru.agniaendie.authservice.repository.IUsersRepository
-import ru.agniaendie.authservice.security.jwt.JwtTokenService
+import ru.agniaendie.authservicecorp.model.User
+import ru.agniaendie.authservicecorp.repository.IUsersRepository
+import ru.agniaendie.authservicecorp.security.jwt.JwtTokenService
 
 @Component
 class UsernamePasswordAuthenticationFilter(

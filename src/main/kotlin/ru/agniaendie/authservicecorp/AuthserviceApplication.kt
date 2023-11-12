@@ -1,4 +1,4 @@
-package ru.agniaendie.authservice
+package ru.agniaendie.authservicecorp
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
